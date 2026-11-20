@@ -1,8 +1,13 @@
 package com.andrey.projetomvc.model;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class Livro {
+    @NotBlank(message = "Informe o título")
     private String titutlo;
+    @NotBlank(message = "Informe o autor")
     private String autor;
+    @NotBlank(message = "Informe o ISBN")
     private String isbn;
 
     public Livro(){}

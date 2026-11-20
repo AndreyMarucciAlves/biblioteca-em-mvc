@@ -1,12 +1,22 @@
 package com.andrey.projetomvc.model;
 
+import jakarta.validation.constraints.NotBlank;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Usuario {
+    @NotBlank(message = "Informe o nome")
     private String nome;
+    @NotBlank(message = "Informe o login")
     private String login;
+    @NotBlank(message = "Informe a senha")
     private String senha;
     private List<Emprestimo> listaEmprestimos;
+
+    public Usuario() {
+        this.listaEmprestimos = new ArrayList<>();
+    }
 
     public Usuario(String nome, String login, String senha, List<Emprestimo> listaEmprestimos) {
         this.nome = nome;

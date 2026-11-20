@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Autor</title>
+</head>
+<body>
+    <a th:href="@{/livros}">Início</a>
+    <h1>Autor</h1>
+    <form th:action="${indice == null} ? @{/autores/autor} : @{/autores/autor/{i}(i=${indice})}"
+          th:method="${indice == null} ? 'post' : 'put'" th:object="${autor}">
+        <p><label>Nome: <input type="text" th:field="*{nome}"></label> <span style="color:red" th:errors="*{nome}"></span></p>
+        <p><label>Nacionalidade: <input type="text" th:field="*{nacionalidade}"></label> <span style="color:red" th:errors="*{nacionalidade}"></span></p>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

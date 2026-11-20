@@ -1,13 +1,21 @@
 package com.andrey.projetomvc.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
 import java.time.LocalDateTime;
 
 public class Emprestimo {
+    @NotBlank(message = "Informe o titular")
     private String nomeTitular;
+    @NotBlank(message = "Informe o livro")
     private String nomeLivro;
+    @NotNull(message = "Informe a data do empréstimo")
     private LocalDateTime dataEmprestimo;
     private LocalDateTime dataDevolucao;
     private LocalDateTime dataDevolvido;
+
+    public Emprestimo(){}
 
     public Emprestimo(String nomeTitular, String nomeLivro, LocalDateTime dataEmprestimo, LocalDateTime dataDevolvido) {
         this.nomeTitular = nomeTitular;

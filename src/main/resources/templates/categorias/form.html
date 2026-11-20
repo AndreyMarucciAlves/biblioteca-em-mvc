@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categoria</title>
+</head>
+<body>
+    <a th:href="@{/livros}">Início</a>
+    <h1>Categoria</h1>
+    <form th:action="${indice == null} ? @{/categorias/categoria} : @{/categorias/categoria/{i}(i=${indice})}"
+          th:method="${indice == null} ? 'post' : 'put'" th:object="${categoria}">
+        <p><label>Gênero: <input type="text" th:field="*{genero}"></label> <span style="color:red" th:errors="*{genero}"></span></p>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

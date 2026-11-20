@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorias</title>
+</head>
+<body>
+    <a th:href="@{/livros}">Início</a>
+    <h1>Categorias</h1>
+    <a th:href="@{/categorias/categoria}">Novo</a>
+    <table border="1" cellpadding="6">
+        <tr><th>Gênero</th><th></th><th></th></tr>
+        <tr th:each="categoria, s : ${categorias}">
+            <td th:text="${categoria.genero}"></td>
+            <td><a th:href="@{/categorias/categoria/{i}(i=${s.index})}">Editar</a></td>
+            <td>
+                <form th:action="@{/categorias/categoria/{i}(i=${s.index})}" th:method="delete">
+                    <button type="submit">Excluir</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

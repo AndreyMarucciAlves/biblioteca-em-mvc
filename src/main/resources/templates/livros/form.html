@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Livro</title>
+</head>
+<body>
+    <a th:href="@{/livros}">Início</a>
+    <h1>Livro</h1>
+    <form th:action="${indice == null} ? @{/livros/livro} : @{/livros/livro/{i}(i=${indice})}"
+          th:method="${indice == null} ? 'post' : 'put'" th:object="${livro}">
+        <p><label>Título: <input type="text" th:field="*{titutlo}"></label> <span style="color:red" th:errors="*{titutlo}"></span></p>
+        <p><label>Autor: <input type="text" th:field="*{autor}"></label> <span style="color:red" th:errors="*{autor}"></span></p>
+        <p><label>ISBN: <input type="text" th:field="*{isbn}"></label> <span style="color:red" th:errors="*{isbn}"></span></p>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

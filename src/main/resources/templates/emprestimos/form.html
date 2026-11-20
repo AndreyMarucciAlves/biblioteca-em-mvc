@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Empréstimo</title>
+</head>
+<body>
+    <a th:href="@{/livros}">Início</a>
+    <h1>Empréstimo</h1>
+    <form th:action="${indice == null} ? @{/emprestimos/emprestimo} : @{/emprestimos/emprestimo/{i}(i=${indice})}"
+          th:method="${indice == null} ? 'post' : 'put'" th:object="${emprestimo}">
+        <p><label>Titular: <input type="text" th:field="*{nomeTitular}"></label> <span style="color:red" th:errors="*{nomeTitular}"></span></p>
+        <p><label>Livro: <input type="text" th:field="*{nomeLivro}"></label> <span style="color:red" th:errors="*{nomeLivro}"></span></p>
+        <p><label>Data do empréstimo: <input type="datetime-local" th:field="*{dataEmprestimo}"></label> <span style="color:red" th:errors="*{dataEmprestimo}"></span></p>
+        <p><label>Devolução prevista: <input type="datetime-local" th:field="*{dataDevolucao}"></label> <span style="color:red" th:errors="*{dataDevolucao}"></span></p>
+        <p><label>Devolvido em: <input type="datetime-local" th:field="*{dataDevolvido}"></label> <span style="color:red" th:errors="*{dataDevolvido}"></span></p>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>

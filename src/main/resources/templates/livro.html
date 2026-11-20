@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Livro</title>
+</head>
+<body>
+    <a th:href="@{/livros}">Início</a>
+    <h1 th:text="${livro.titutlo}"></h1>
+    <p th:text="'Autor: ' + ${livro.autor}"></p>
+    <p th:text="'ISBN: ' + ${livro.isbn}"></p>
+</body>
+</html>

@@ -1,11 +1,20 @@
 package com.andrey.projetomvc.model;
 
+import jakarta.validation.constraints.NotBlank;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Autor {
+    @NotBlank(message = "Informe o nome")
     private String nome;
+    @NotBlank(message = "Informe a nacionalidade")
     private String nacionalidade;
     private List<Livro> obrasPublicadas;
+
+    public Autor() {
+        this.obrasPublicadas = new ArrayList<>();
+    }
 
     public Autor(String nome, String nacionalidade, List<Livro> obrasPublicadas) {
         this.nome = nome;
